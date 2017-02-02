@@ -3,6 +3,7 @@ CMD ["/sbin/my_init"]
 
 ENV VERSION 5.2.0
 
+WORKDIR /
 RUN apt-get update && apt-get install -y bash curl ca-certificates sudo && apt-get clean
 RUN ( curl -Lskj https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$VERSION.tar.gz | \
   gunzip -c - | tar xf - ) && \

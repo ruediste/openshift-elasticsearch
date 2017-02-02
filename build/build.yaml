@@ -8,10 +8,10 @@ spec:
     type: "Git"
     git:
       uri: "https://github.com/ruediste/openshift-elasticsearch.git"
+    contextDir: image/
   strategy:
     type: "Docker"
     dockerStrategy:
-      dockerfilePath: image/Dockerfile
   output:
     to:
       kind: "ImageStreamTag"
