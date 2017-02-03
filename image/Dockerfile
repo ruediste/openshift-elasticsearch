@@ -38,4 +38,4 @@ ENV MAX_LOCAL_STORAGE_NODES 1
 ENV NAMESPACE default
 ENV DISCOVERY_SERVICE elasticsearch-discovery
 
-RUN chmod uog+w /etc/
+RUN chmod uog+w /etc/ /etc/container_environment
