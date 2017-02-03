@@ -32,7 +32,7 @@ spec:
         #   capabilities:
         #     add:
         #       - IPC_LOCK
-        image: elasticsearch
+        image: 172.30.37.22:5000/axach-bpm/elasticsearch
         imagePullPolicy: Always
         env:
         - name: NAMESPACE

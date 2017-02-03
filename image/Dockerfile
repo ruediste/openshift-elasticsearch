@@ -5,12 +5,11 @@ ENV VERSION 5.2.0
 
 WORKDIR /
 RUN apt-get update && apt-get install -y bash curl ca-certificates sudo && apt-get clean
-RUN pwd && \
-  ( curl -Lskj https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$VERSION.tar.gz | \
-    gunzip -c - | tar xf - ) && ls && \
+RUN ( curl -Lskj https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$VERSION.tar.gz | \
+    gunzip -c - | tar xf - ) && \
   mv /elasticsearch-$VERSION /elasticsearch && \
   rm -rf $(find /elasticsearch | egrep "(\.(exe|bat)$)") && \
-  chmod uog+rw /elasticsearch && \
+  chmod -R uog+r /elasticsearch && \
   rm -rf /tmp/* /var/tmp/*
 
 VOLUME ["/data"]
@@ -38,3 +37,5 @@ ENV NUMBER_OF_REPLICAS 0
 ENV MAX_LOCAL_STORAGE_NODES 1
 ENV NAMESPACE default
 ENV DISCOVERY_SERVICE elasticsearch-discovery
+
+RUN chmod uog+w /etc/
